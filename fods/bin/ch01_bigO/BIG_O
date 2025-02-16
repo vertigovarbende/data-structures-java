@@ -1,0 +1,224 @@
+BIG-O
+
+Big O: Intro
+
+# Big O is a way of comparing code one and code two mathematically
+about how efficient they run. (in a coding interview, you will absolutely
+be asked questions about big O).
+
+# Let's say we have a stopwatch 
+ - we run code-1, and we start the stopwatch, and it runs for 15 seconds
+ - we reset the stopwatch, and we run code-2, and code-2 runs a lot longer
+ than 15 seconds. It runs for a full minute.
+ - Based on this, you would say that code-1 is better than code-2
+ - YOU CAN MEASURE IT.
+ 
+# This is called time complexity (1).
+ - The thing about time complexity that is interesting is that it is not
+ measured in time.
+ - Because if you took the same code and ran it on a computer that
+ runs twice as fast, it would complete twice as fast.
+ - It doesn't make the code any better. It just means the computer is BETTER.
+ - So it is measured in the number of operations that it takes to complete
+ something.
+ 
+ # In addition to time complexity, we measure space complexity (2).
+ 
+ - So let's say that code1 while it runs very fast comparatively, let's say it takes up a lot of
+ memory when it runs.
+ 
+ - And maybe code2, even though that takes much longer to finish. Maybe it takes up less memory.
+ 
+ - If preserving memory space is your most important priority and you don't mind having some extra time
+ complexity, maybe code2 is better.
+ 
+ 
+ # You have to understand both concepts and be able to address that in the job interview.
+ 
+ #####################################################################################################
+ 
+ Big O: Worst Case
+
+# So when dealing with time and space complexity, you will see these three Greek letters.
+
+ - Ω --> Omega
+ - Θ --> Theta
+ - Ο --> Omicron --> Omicron is better now as O as in Big O
+ 
+# Image we have an array like this
+
+	1, 2, 3, 4, 5, 6, 7
+	
+# and we are going to use a for loop to loop through this array.
+
+# So when we are looking at how many times that we have to run the for loop,
+
+	- our BASE CASE would be if we are looking at the number 1 (index 0)
+	- our WORST CASE would be if we are looking at for the number 7 (index 6)
+	- our AVERAGE CASE would be if we were looking for the number 4 (index 3)
+	
+# SO
+
+	- This BEST CASE with the number 1 for that we use omega Ω
+	- For the AVERAGE CASE we use the Greek letter theta Θ
+	- And for our WORST CASE we use the Greek letter omicron or O
+	
+	
+# So one of the things people will say when you talk about your big O being a particular time complexity
+is they will say things like "yeah, but what is your average big O or your best case big O?"
+
+	- Well, technically there is no average case or best case big O.
+		- Average case would be THETA 
+		- and best case would be OMEGA
+
+  #####################################################################################################
+  
+Big O: O(n) --> lecture6.java
+ 
+ 
+# It is O of n and I start with O(n), not because it is the most efficient or the least efficient.
+
+- And the reason that it is O of N (O(n)) is we had a number n (int n).
+- In this case it was 10
+- and then we did 10 operations in our for loop.
+- Now let's look at O of N (O(n)) on a graph (look at Lecture 6 in udemy).
+
+# IN GRAPH
+
+- axis(x) -> this is 'n'
+- ordinate(y) -> this is the number of operations.
+ (SANKİ f(x) = x fonksiyonu gibi
+
+# O(n) is always going to be a straight line. It is what is called proportional
+
+ 
+ #####################################################################################################
+
+Big O: Drop Constants - lecture7.java
+
+# So in Big O, we have a few ways that we can simplify things and the first of those that we are going
+to look at is drop constants.
+
+(FIRST LOOK AT lecture7.java)
+
+# So in this case we had n + n operations. We passed this 10 items and it ran 20 time which is 2n.
+# So you might think that this would be O(2n)
+# But we simplify this by dropping the constant and it just becomes O(n)
+# and it doesn't matter if the constant is 2 or 10 or a 1000. We are going to remove it and just
+leave this with O(n)
+
+#####################################################################################################
+
+Big O: O(n^2) --> lecture8.java
+
+# So look at lecture7.java. There is a 'for' loop followed by another 'for' loop.
+- To make this code O(n^2), all we have to do is make it where one 'for' loop is inside of the other 'for' loop
+- Look at lecture8.java
+- So there is our method there with one 'for' loop inside of another 'for' loop
+
+# So these 'for' loops ran n * n OR n^2
+- So we pass this a ten and we had 100 lines that were output.
+- and that is O(n^2)
+
+# Now let's look at O(n^2) on a graph (look at Lecture 8 in udemy)
+
+# IN GRAPH
+
+- axis(x) -> this is 'n'
+- ordinate(y) -> this is the number of operations.
+(sanki f(x) = x^2 fonksiyonu gibi)
+
+
+- So you can see compared to O(n), that O(n^2) grows much faster.
+- AND that means from a time complexity perspective it is less efficient.
+- So if you have a situation where your code is O(n^2), and there is a way of rewriting the code to make it
+O(n) that is a huge gain in efficiency.
+
+
+#####################################################################################################
+
+Big O: Drop non-Dominants --> lecture9.java
+
+# So to illustrate this I am going to start with our nested 'for' loops that we saw in the last video (lecture8.java).
+But I am going to add an additional 'for' loop after these (look at lecture9.java)
+
+# So we have our nested 'for' loops above and a separate stand alone 'for' loop down here.
+- So this nested 'for' loop ran O(n^2) times. (0 0, 0 1, 0 2, ... 9 9).
+- and other 'for' loop which stands alone(not nested one) ran O(n) times.
+
+# So the total number of operations was n^2 + n
+- So that would be O(n^2 + n). But as n gets larger the n^2 grows much faster than the n.
+- Even if we only took this to 100, the n^2 portion would be 10_000 operations and that stand alone n would be 100
+operations
+- So the n^2 is the dominant firm and the n is the non-dominant firm.
+- And as n becomes larger and larger, you can see that that stand alone n starts becoming irrelevant.
+- SO WE JUST DROP THE N.
+
+# So this rule of simplification is DROP NON-DOMINANTS.
+
+#####################################################################################################
+
+Big O: O(1) --> lecture10.java
+
+# Lets look at lecture10
+# There is a function that named addItems 
+- So it doesn't matter if n is 10 or is a billion, there is only going to be one
+operation, which is the addition, and that is O(1)
+
+# With what we have seen before as in grows the number of operations grows 
+- In this situation as n grows, the number of operations will STAY THE SAME. (n + n)
+
+# So now let's change this being from n + n to being n + n + n
+- Now we have two operations. So we could call this O(2)
+- And as you may have guessed, we are going to simplify this and call it O(1)
+
+# O(1) is also called constant time.
+- It doesn't necessarily mean that there is only going to be one operation.
+- It means that as n grows, the number of operations stays constant.
+
+# So now let's take a look at this on the graph (look at Lecture 10 in udemy.)
+
+# IN GRAPH
+
+- axis(x) -> this is 'n'
+- ordinate(y) -> this is the number of operations.
+(sanki f(x) = 1 fonksiyonu gibi)
+
+# O(1) is just going to be a flat line across the bottom.
+- It is the most efficient Big O
+- If you can do something in O(1) time, it is always going to be much more efficient than anything else.
+
+
+#####################################################################################################
+
+# Big O: Different Terms for Inputs
+
+#####################################################################################################
+
+# Big O: Array Lists
+
+#####################################################################################################
+
+# Big O: Wrap Up
+
+- O(n^2) -> Loop within a Loop
+- O(n) -> Proportional
+- O(logn) -> Divide and Conquer
+- O(1) -> Constant 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
