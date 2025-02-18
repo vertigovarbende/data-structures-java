@@ -68,6 +68,7 @@ public class LinkedList {
 
 	// removeLast function will remove the last node from the linked list
 	
+	// (1) removeLast(): Node
 	/*
 	public void removeLast() {
 		// if linked list is empty
@@ -94,7 +95,7 @@ public class LinkedList {
 	}
 	*/
 	
-	// (2) removeLast -> the correct one!
+	// (2) removeLast(): Node
 	public Node removeLast() {
 		// if linked list is empty
 		if (length == 0) // or head.equals(null) or tail.equals(null)
@@ -118,7 +119,8 @@ public class LinkedList {
 		return temp;
 	}
 	
-	// prepend function will add new node from left to the linked list
+	// prepend(value: int): void - function will add new node from left to the linked list
+	
 	public void prepend(int value) {
 		Node newNode = new Node(value);
 		// if linked list is empty
@@ -137,7 +139,7 @@ public class LinkedList {
 		++length;
 	}
 	
-	// removeFirst function will remove the node from left to the linked list
+	// removeFirst() function will remove the node from left to the linked list
 	
 	// (1)
 	public Node removeFirst() {
@@ -155,15 +157,14 @@ public class LinkedList {
 		return temp;
 	}
 	
-	// get function will return the specified index node's value
+	// get(index: int): Node -  function will return the specified index node's value
 	
-	// (1) i wrote this method
+	// (1) 
 	// you have to bound index value between 0 and length - 1
 	// otherwise if user enter negative index or greater index than linked list length
 	// you will get an exception
 	
 	// also you don't have to check whether the linked list is empty or not
-	// check (2) for better explanation
 	/*
 	public Node get(int index) {
 		// (1) if linked list is empty
@@ -179,7 +180,7 @@ public class LinkedList {
 	}
 	*/
 	
-	// (2) the correct one!
+	// (2) 
 	public Node get(int index) {
 		if (index < 0 || index >= length)
 			return null;
@@ -189,7 +190,7 @@ public class LinkedList {
 		return temp;
 	}
 	
-	// set function will set the node's value by specified index 
+	// set(index: int, value: int): boolean - function will set the node's value by specified index 
 	
 	// (1) 
 	/*
@@ -214,7 +215,7 @@ public class LinkedList {
 		return false;
 	}
 	
-	// insert() function will insert new node to the linked list
+	// insert(index: int, value: int): boolean - function will insert new node to the linked list
 	
 	// (1)
 	/*
@@ -245,7 +246,7 @@ public class LinkedList {
 	}
 	*/
 	
-	// (2) correct one!
+	// (2)
 	public boolean insert(int index, int value) {
 		if (index < 0 || index > length)
 			return false;
@@ -264,10 +265,10 @@ public class LinkedList {
 		return true;
 	}
 	
-	// remove() function will remove the node from the linked list
+	// remove(index: int): Node -  function will remove the node from the linked list
 	
 	// (1)
-	// look at (2) because you have many mistakes!
+	
 	/*
 	public Node remove(int index) {
 		if (length == 0)
@@ -292,7 +293,7 @@ public class LinkedList {
 	}
 	*/
 	
-	// (2) correct one!
+	// (2)
 	public Node remove(int index) {
 		if (index < 0 || index >= length)
 			return null;
@@ -310,4 +311,22 @@ public class LinkedList {
 		return temp;
 	}
 	
+	
+	// reverse(): void - method will reverse the linked list
+	// first node will be the last node in the original linked list
+	// last node will be the first node in the original linked list
+	public void reverse() {
+		Node temp = head;
+		head = tail;
+		tail = temp;
+		Node a = temp.next;
+		Node b = null;
+		
+		for (int i = 0; i < length; ++i) {
+			a = temp.next;
+			temp.next = b;
+			b = temp;
+			temp = a;
+		}
+	}
 }

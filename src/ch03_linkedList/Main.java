@@ -105,7 +105,7 @@ public class Main {
 		*/
 		
 		// remove()
-		
+		/*
 		LinkedList myLinkedList = new LinkedList(11);
 		myLinkedList.append(3);
 		myLinkedList.append(23);
@@ -116,7 +116,19 @@ public class Main {
 		
 		myLinkedList.remove(2);
 		myLinkedList.printList();
+		*/
 		
+		// reverse()
+		LinkedList myLinkedList = new LinkedList(3);
+		myLinkedList.append(4);
+		myLinkedList.append(5);
+		myLinkedList.append(6);
+		
+		myLinkedList.printList();
+		System.out.println();
+		
+		myLinkedList.reverse();
+		myLinkedList.printList();
 		
 	}
 }
