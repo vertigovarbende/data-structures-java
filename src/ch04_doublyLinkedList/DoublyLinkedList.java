@@ -58,6 +58,7 @@ public class DoublyLinkedList {
 					System.out.print(" -> ");
 			}
 		}
+		System.out.println();
 	}
 	
 	// append() 
@@ -117,6 +118,145 @@ public class DoublyLinkedList {
 		return temp;
 	}
 	
+	// prepend()
+	public void prepend(int value) {
+		Node newNode = new Node(value);
+		if (length == 0) {
+			head = newNode;
+			tail = newNode;
+		} else {
+			newNode.next = head;
+			head.prev = newNode;
+			head = newNode;
+		}
+		++length;
+	}
+	
+	// removeFirst()
+	/*
+	public Node removeFirst() {
+		Node temp = head;
+		if (length == 0)
+			return null;
+		else {
+			head = head.next;
+			head.prev = null;
+			temp.next = null;
+		}
+		--length;
+		if (length == 0) {
+			head = null;
+			tail = null;
+		}
+		return temp;
+	}
+	*/
+	
+	// (2) removeFirst()
+	public Node removeFirst() {
+		if (length == 0)
+			return null;
+		Node temp = head;
+		if (length == 1) {
+			head = null;
+			tail = null;
+		} else {
+			head = head.next;
+			head.prev = null;
+			tail.next = null;
+		}
+		--length;
+		return temp;
+	}
+	
+	// get()
+	/*
+	public Node get(int index) {
+		if (index < 0 || index >= length)
+			return null;
+		Node temp = index <= length / 2 ? head : tail; 
+		if (temp.equals(tail)) {
+			for (int i = 0; i < (length - 1) % index; ++i)
+				temp = temp.prev;
+		} else if (temp.equals(head)) {
+			for (int i = 0; i < index; ++i)
+				temp = temp.next;
+		}
+		return temp;
+	}
+	*/
+	
+	// (2) get()
+	public Node get(int index) {
+		if (index < 0 || index >= length)
+			return null;
+		Node temp = head;
+		if (index < length / 2) {
+			for (int i = 0; i < index; ++i)
+				temp = temp.next;
+		} else {
+			temp = tail;
+			for (int i = length - 1; i > index; --i)
+				temp = temp.prev;
+		}
+		return temp;
+	}
 	
 	
+	// set()
+	public boolean set(int index, int value) {
+		Node temp = get(index);
+		if (temp != null) {
+			temp.value = value;
+			return true;
+		}
+		return false;
+	}
+	
+	// insert()
+	/*
+	public boolean insert(int index, int value) {
+		if (index < 0 || index > length)
+			return false;
+		if (index == 0) {
+			prepend(value);
+			return true;
+		} else if (index == length) {
+			append(value);
+			return true;
+		} 
+		Node newNode = new Node(value);
+		Node prevNode = get(index - 1);
+		newNode.prev = prevNode;
+		newNode.next = prevNode.next;
+		prevNode.next = newNode;
+		newNode.next.prev = newNode;
+		++length;
+		return true;
+	}
+	*/
+	
+	// insert()
+	public boolean insert(int index, int value) {
+		if (index < 0 || index > length)
+			return false;
+		if (index == 0) {
+			prepend(value);
+			return true;
+		}
+		if (index == length) {
+			append(value);
+			return true;
+		}
+		Node newNode = new Node(value);
+		Node b = get(index - 1);
+		Node a = b.next;
+		
+		newNode.prev = b;
+		newNode.next = a;
+		b.next = newNode;
+		a.prev = newNode;
+		++length;
+		return true;
+	}
 }
