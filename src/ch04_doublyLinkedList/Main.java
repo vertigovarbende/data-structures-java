@@ -91,6 +91,7 @@ public class Main {
 		*/
 		
 		// insert()
+		/*
 		DoublyLinkedList myDLL = new DoublyLinkedList(1);
 		myDLL.append(2);
 		myDLL.append(4);
@@ -99,6 +100,22 @@ public class Main {
 		
 		myDLL.insert(3, 3);
 		myDLL.printList();
+		*/
 		
+		// remove()
+		DoublyLinkedList myDLL = new DoublyLinkedList(1);
+		myDLL.append(2);
+		myDLL.append(3);
+		myDLL.prepend(0);
+		myDLL.printList();
+		
+		System.out.println(myDLL.remove(3).value);
+		myDLL.printList();
+		System.out.println(myDLL.remove(2).value);
+		myDLL.printList();
+		System.out.println(myDLL.remove(1).value);
+		myDLL.printList();
+		System.out.println(myDLL.remove(0).value);
+		myDLL.printList();
 	}
 }

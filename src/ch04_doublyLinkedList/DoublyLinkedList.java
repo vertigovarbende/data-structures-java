@@ -236,7 +236,7 @@ public class DoublyLinkedList {
 	}
 	*/
 	
-	// insert()
+	// (2) insert()
 	public boolean insert(int index, int value) {
 		if (index < 0 || index > length)
 			return false;
@@ -258,5 +258,56 @@ public class DoublyLinkedList {
 		a.prev = newNode;
 		++length;
 		return true;
+	}
+	
+	// remove()
+	/*
+	public Node remove(int index) {
+		if (index < 0 || index >= length)
+			return null;
+		if (index  == 0)
+			return removeFirst();
+		if (index  == length - 1)
+			return removeLast();
+		
+		Node temp = get(index);
+		Node tempA = get(index + 1);
+		Node tempB = temp.prev;
+		
+		tempB.next = tempA;
+		temp.prev = null;
+		temp.next = null;
+		tempA.prev = tempB;
+		--length;
+		if (length == 0) {
+			head = null;
+			tail = null;
+		}
+		return temp;
+	}
+	*/
+	
+	// (2) remove()
+	public Node remove(int index) {
+		if (index < 0 || index >= length)
+			return null;
+		if (index  == 0)
+			return removeFirst();
+		if (index  == length - 1)
+			return removeLast();
+		
+		Node temp = get(index);
+		
+		temp.next.prev = temp.prev;
+		temp.prev.next = temp.next;
+		temp.next = null;
+		temp.prev = null;
+		--length;
+		if (length == 0) {
+			head = null;
+			tail = null;
+		}
+		
+		return temp;
 	}
 }
