@@ -57,7 +57,7 @@ public class LL_01_v1 {
 			temp = temp.next;
 		}
 	}
-	
+
 	public void clear() {
 		head = null;
 		tail = null;
@@ -79,20 +79,13 @@ public class LL_01_v1 {
 	// (1)
 	// findMiddleNode(): Node
 	/*
-	public Node findMiddleNode() {
-		Node a = head.next.next;
-		Node b = head;
-		while (a.next != null) {
-			b = b.next;
-			a = a.next;
-		}
-		return b;
-	}
-	*/
-	
+	 * public Node findMiddleNode() { Node a = head.next.next; Node b = head; while
+	 * (a.next != null) { b = b.next; a = a.next; } return b; }
+	 */
+
 	// (2)
 	// findMiddleNode(): Node
-	
+
 	public Node findMiddleNode() {
 		if (head == null)
 			return null;
@@ -106,14 +99,4 @@ public class LL_01_v1 {
 		}
 		return b;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

@@ -105,5 +105,4 @@ public class LL_04_v1 {
 			length = newLength;
 		}
 	}
-
 }

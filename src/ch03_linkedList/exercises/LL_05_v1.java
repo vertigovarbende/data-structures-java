@@ -90,5 +90,4 @@ public class LL_05_v1 {
 		}
 		return decimalValue;
 	}
-
 }

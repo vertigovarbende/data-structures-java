@@ -51,7 +51,7 @@ public class LL_02_v1 {
 			temp = temp.next;
 		}
 	}
-	
+
 	// clear(): void
 	public void clear() {
 		head = null;
@@ -94,5 +94,4 @@ public class LL_02_v1 {
 		}
 		return false;
 	}
-
 }
