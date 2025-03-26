@@ -55,7 +55,7 @@ public class DoublyLinkedList {
 				System.out.print(temp.value);
 				temp = temp.next;
 				if (temp != null)
-					System.out.print(" -> ");
+					System.out.print(" <-> ");
 			}
 		}
 		System.out.println();
@@ -310,4 +310,19 @@ public class DoublyLinkedList {
 		
 		return temp;
 	}
+	
+	// reverse()
+	public void reverse() {
+		Node cNode = head;
+		Node tempNode = null;
+		while (cNode != null) {
+			tempNode = cNode.prev;
+			cNode.prev = cNode.next;
+			cNode.next = tempNode;
+			cNode = cNode.prev;
+		}
+		tempNode = head;
+		head = tail;
+		tail = tempNode;
+	}	
 }
