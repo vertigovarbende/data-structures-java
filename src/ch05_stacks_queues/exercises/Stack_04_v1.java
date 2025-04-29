@@ -2,9 +2,9 @@ package ch05_stacks_queues.exercises;
 
 import java.util.ArrayList;
 
-public class Stack_01_v1<T> {
+public class Stack_04_v1<T> {
 
-	private ArrayList<T> stackList = new ArrayList<T>();
+	private ArrayList<T> stackList = new ArrayList<>();
 
 	public ArrayList<T> getStackList() {
 		return stackList;
@@ -12,7 +12,7 @@ public class Stack_01_v1<T> {
 
 	public void printStack() {
 		for (int i = stackList.size() - 1; i >= 0; --i)
-			System.out.println(stackList.get(i));
+			System.out.print(stackList.get(i));
 	}
 
 	public boolean isEmpty() {
@@ -30,8 +30,15 @@ public class Stack_01_v1<T> {
 		return stackList.size();
 	}
 
-	// push()
 	public void push(T value) {
 		stackList.add(value);
 	}
+
+	public T pop() {
+		if (isEmpty())
+			return null;
+		else
+			return stackList.remove(size() - 1);
+	}
+
 }
