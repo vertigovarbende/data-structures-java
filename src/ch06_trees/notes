@@ -1,0 +1,47 @@
+ (1) FULL TREE --> every node either points too zero nodes or two nodes.
+ 
+ (2) PERFECT TREE --> any level in the tree that has any nodes is completely filled 
+ 					  all the way across.
+ 					  
+ (3) COMPLETE TREE --> 
+ 
+ 
+ parents-children-siblings --> every child nodes have one parent
+ 						   --> child nodes can be parent as well 
+ 						   --> if two nodes have the same parent, these node can be called siblings.
+ 						   --> child nodes are called leaves if they have no other child nodes.					   
+ -----------------------------------------
+ 
+Binary Search Trees
+ 
+- A tree, in order for it to be a binary search tree, the nodes have to be laid out in a particular way.
+
+- In a binary search tree, if the number the node has is greater than the number the parent node has, 
+  then it will go to the right of that parent node. If it's less than it's going to go on the left of that parent node.
+ 
+# We are always going to start by comparing it to the node at the TOP!
+- example
+
+1-			47
+2-		21		76
+3-	 18	  27  52  82
+
+# So a couple of things to point out about a binary search tree
+	
+	- If you take any node in the binary search tree, all nodes below it to the right are going to be greater
+	that the first node (parent node - 47)
+	- Everything on the left is going to be less than the that the first node (parent node - 47)
+
+ -----------------------------------------
+ 
+ Binary Search Tree - BIG O
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
